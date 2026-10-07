@@ -1,0 +1,27 @@
+model:
+  hf_id: "muse-spark-1.1-eval"
+  thinking_mode: true
+inference:
+  method: "zeroshot_cot"
+  n_frames: 32
+  max_new_tokens: 4096
+  temperature: 0.0
+  top_p: 1.0
+  seed: 42
+  batch_size: 1
+video:
+  cache_root: "data/video_cache"   # or override on the CLI: video.cache_root=$VRITS_DATA/video_cache
+  frame_extractor: "decord"
+  frame_resize: 336
+benchmarks:
+  - name: "egoschema"
+    n_samples: null
+    subset: "subset"
+output:
+  results_dir: "../"
+methods:
+  evidence_loop:
+    n_overview_frames: 24
+    n_zoom_frames: 12
+    max_rounds: 3
+    round_max_new_tokens: 2048

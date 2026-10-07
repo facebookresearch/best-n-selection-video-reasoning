@@ -1,0 +1,15 @@
+torch>=2.11
+vllm>=0.25.1
+transformers>=5.13.1
+qwen-vl-utils>=0.0.11
+decord>=0.6.0
+opencv-python-headless
+av>=18
+datasets>=5.0
+pandas
+pyarrow
+tensorboard
+tqdm
+omegaconf
+Pillow
+numpy

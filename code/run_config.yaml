@@ -1,0 +1,32 @@
+model:
+  hf_id: "Qwen/Qwen3.5-27B"
+  tp_size: 1
+  dtype: "bfloat16"
+  max_model_len: 32768
+  gpu_memory_utilization: 0.9
+  thinking_mode: false
+  max_num_seqs: 64
+
+inference:
+  method: "zeroshot_cot"
+  n_frames: 32
+  max_new_tokens: 1024
+  temperature: 0.0
+  top_p: 1.0
+  seed: 42
+  batch_size: 16
+
+video:
+  cache_root: "data/video_cache"   # or override on the CLI: video.cache_root=$VRITS_DATA/video_cache
+  frame_extractor: "decord"
+  frame_resize: 336
+
+benchmarks:
+  - name: "egoschema"
+    n_samples: null
+    subset: "subset"
+
+output:
+  results_dir: "../"
+  save_predictions: true
+  progress_log_every: 25
